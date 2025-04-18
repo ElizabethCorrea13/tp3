@@ -4,51 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cursada Cuatrimestral</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body>
+
+<body class="d-flex flex-column min-vh-100" style="background-color:#E8F1F5;">
     <header>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="avisos.html">Avisos</a>
-            <a href="sobreMi.html">Sobre Mi</a>
-            <a href="materias2025.html">Materias 2025</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
+      <nav class="navbar navbar-expand-md  shadow-sm border-bottom" style="background-color:#FAFAFA">
+        <div class="container">
+          <a class="navbar-brand fw-bold fs-3" href="index.html" style="color: #004A7C">Cursada</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav gap-4">
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-semibold" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-semibold" href="avisos.html">Avisos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-semibold" href="sobreMi.html">Sobre Mi</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-semibold" href="materias2025.html">Materias 2025</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark fw-semibold" href="contacto.html">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
-    <body>
-        <h1>Avisos</h1>
-        <h3>Tareas pendientes</h3>
-        <section>
-            <h4>Diseño y Desarrollo Web</h4>
-            <ul>
-                <li>Realizar cuestionario 1</li>
-                <li>Debatir en el foro, Actividad 2</li>
-            </ul>
-        </section>
-        <section>
-            <h4>Marketing Global</h4>
-            <ul>
-                <li>Enviar tarea obligatoria</li>
-                <li>Ver video de experto</li>
-            </ul>
-        </section>
-        <section>
-            <h4>Redes de Datos</h4>
-            <ul>
-                <li>Realizar cuestionario 1</li>
-                <li>Enviar tarea obligatoria</li>
-            </ul>
-        </section>
-        <section>
-            <h4>Gestión de Personas en Organizaciones de Tecnología</h4>
-            <ul>
-                <li>Ver video de experto</li>
-                <li>Realizar cuestionario 2</li>
-            </ul>
-        </section>
-    </body>
-    <footer>
-        <p>Derechos reservados.</p>
+    <main class="container py-4">
+        <h1 class="text-center mb-4 mt-4" style="color: rgb(59, 59, 59)">Avisos</h1>
+        <h4 class="mb-4" style="color: rgb(59, 59, 59)">Tareas pendientes:</h4>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+            <div class="card shadow-sm">
+              <div class="card-header text-white fw-bold" style="background-color:#005691">
+                Diseño y Desarrollo Web
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Realizar cuestionario 1</li>
+                <li class="list-group-item">Debatir en el foro, Actividad 2</li>
+              </ul>
+            </div>
+          </div>
+      
+          <div class="col">
+            <div class="card shadow-sm">
+              <div class="card-header text-white fw-bold" style="background-color:#005691">
+                Marketing Global
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Enviar tarea obligatoria</li>
+                <li class="list-group-item">Ver video de experto</li>
+              </ul>
+            </div>
+          </div>
+      
+          <div class="col">
+            <div class="card shadow-sm">
+              <div class="card-header text-white fw-bold" style="background-color:#005691">
+                Redes de Datos
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Realizar cuestionario 1</li>
+                <li class="list-group-item">Enviar tarea obligatoria</li>
+              </ul>
+            </div>
+          </div>
+      
+          <div class="col">
+            <div class="card shadow-sm">
+              <div class="card-header text-white fw-bold" style="background-color:#005691">
+                Gestión de Personas en Organizaciones de Tecnología
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Ver video de experto</li>
+                <li class="list-group-item">Realizar cuestionario 2</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </main>      
+    <footer class="text-center py-2 border-top mt-auto" style="background-color:#FAFAFA">
+        <p class="mb-0" style="color: #004A7C">© Derechos reservados - Elizabeth Correa 2025.</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
