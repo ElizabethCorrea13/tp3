@@ -1,89 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cursada Cuatrimestral</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body.modo-claro {
+      background-color: #E8F1F5;
+      color: #3b3b3b;
+    }
+
+    body.modo-oscuro {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    .modo-oscuro .navbar,
+    .modo-oscuro footer {
+      background-color: #1e1e1e !important;
+    }
+
+    .modo-claro .navbar,
+    .modo-claro footer {
+      background-color: #FAFAFA !important;
+    }
+
+    .modo-oscuro .nav-link {
+      color: #e0e0e0 !important;
+    }
+
+    .modo-claro .nav-link {
+      color: #3b3b3b !important;
+    }
+
+    .modo-oscuro .table thead {
+      background-color: #2c2c2c;
+      color: #ffffff;
+    }
+
+    .modo-claro .table thead {
+      background-color: #005691;
+      color: #FAFAFA;
+    }
+
+    .modo-oscuro .table {
+      background-color: #1a1a1a;
+      color: #ffffff;
+    }
+
+    .modo-claro .table {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .modo-oscuro .navbar-brand,
+    .modo-oscuro footer p {
+      color: #f0f0f0 !important;
+    }
+
+    .modo-claro .navbar-brand,
+    .modo-claro footer p {
+      color: #004A7C !important;
+    }
+
+    .btn-toggle {
+      margin-left: 10px;
+    }
+  </style>
+
 </head>
 
-<body class="d-flex flex-column min-vh-100" style="background-color:#E8F1F5;">
+<body class="d-flex flex-column min-vh-100 modo-claro" id="body">
   <header>
-    <nav class="navbar navbar-expand-md  shadow-sm border-bottom" style="background-color:#FAFAFA">
+    <nav class="navbar navbar-expand-md shadow-sm border-bottom" id="navbar">
       <div class="container">
-        <a class="navbar-brand fw-bold fs-3" href="index.html" style="color: #004A7C">Cursada</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-          <ul class="navbar-nav gap-4">
-            <li class="nav-item">
-              <a class="nav-link text-dark fw-semibold" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark fw-semibold" href="avisos.html">Avisos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark fw-semibold" href="sobreMi.html">Sobre Mi</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark fw-semibold" href="materias2025.html">Materias 2025</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark fw-semibold" href="contacto.html">Contacto</a>
-            </li>
-          </ul>
+        <div class="row w-100 align-items-center">
+          <!-- Logo -->
+          <div class="col-4 col-md-3 text-start">
+            <a class="navbar-brand fw-bold fs-3" href="index.html">Cursada</a>
+          </div>
+
+          <!-- Navegación -->
+          <div class="col-4 col-md-6 text-center">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+              <ul class="navbar-nav gap-3">
+                <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="avisos.html">Avisos</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="sobreMi.html">Sobre Mi</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="materias2025.html">Materias 2025</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="contacto.html">Contacto</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Botones modo claro/oscuro -->
+          <div class="col-4 col-md-3 text-end">
+            <div class="d-flex justify-content-end gap-2">
+              <button id="btnClaro" class="btn btn-outline-dark btn-sm" onclick="activarModoClaro()">Modo Claro</button>
+              <button id="btnOscuro" class="btn btn-dark btn-sm" onclick="activarModoOscuro()">Modo Oscuro</button>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
   </header>
 
-  <main class="container flex-grow-1 ">
-    <h1 class="text-center mb-4 mt-5" style="color: rgb(59, 59, 59)">Home</h1>
-    <h4 class="mb-4" style="color: rgb(59, 59, 59)">Información sobre materias:</h4>
+  <main class="container flex-grow-1">
+    <h1 class="text-center mb-4 mt-5">Home</h1>
+    <h4 class="mb-4">Información sobre materias:</h4>
     <div class="table-responsive">
-      <table class="table table-bordered table-light table-hover text-center rounded-3 overflow-hidden mt-2">
-        <thead class="table-responsive" style="background-color:#005691">
+      <table class="table table-bordered table-hover text-center rounded-3 overflow-hidden mt-2" id="tabla">
+        <thead>
           <tr>
-            <th style="background-color:#005691; color:#FAFAFA">Nombre materia</th>
-            <th style="background-color:#005691; color:#FAFAFA">Horario</th>
-            <th style="background-color:#005691; color:#FAFAFA">Día</th>
-            <th style="background-color:#005691; color:#FAFAFA">Modalidad</th>
+            <th>Nombre materia</th>
+            <th>Horario</th>
+            <th>Día</th>
+            <th>Modalidad</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Diseño y Desarrollo Web</td>
-            <td>18:30hs</td>
-            <td>Lunes</td>
-            <td>Virtual</td>
-          </tr>
-          <tr>
-            <td>Marketing Global</td>
-            <td>18:30hs</td>
-            <td>Martes</td>
-            <td>Virtual</td>
-          </tr>
-          <tr>
-            <td>Redes de Datos</td>
-            <td>18:30hs</td>
-            <td>Jueves</td>
-            <td>Virtual</td>
-          </tr>
-          <tr>
-            <td>Gestión de Personas en Organizaciones de Tecnología</td>
-            <td>18:30hs</td>
-            <td>Viernes</td>
-            <td>Virtual</td>
-          </tr>
+          <tr><td>Diseño y Desarrollo Web</td><td>18:30hs</td><td>Lunes</td><td>Virtual</td></tr>
+          <tr><td>Marketing Global</td><td>18:30hs</td><td>Martes</td><td>Virtual</td></tr>
+          <tr><td>Redes de Datos</td><td>18:30hs</td><td>Jueves</td><td>Virtual</td></tr>
+          <tr><td>Gestión de Personas en Organizaciones de Tecnología</td><td>18:30hs</td><td>Viernes</td><td>Virtual</td></tr>
         </tbody>
       </table>
     </div>
   </main>
 
-  <footer class="text-center py-2 border-top mt-auto" style="background-color:#FAFAFA">
-    <p class="mb-0" style="color: #004A7C">© Derechos reservados - Elizabeth Correa 2025.</p>
+  <footer class="text-center py-2 border-top mt-auto" id="footer">
+    <p class="mb-0">© Derechos reservados - Elizabeth Correa 2025.</p>
   </footer>
+
+  <script>
+    function activarModoClaro() {
+      document.body.classList.remove('modo-oscuro');
+      document.body.classList.add('modo-claro');
+      localStorage.setItem('modo', 'claro');
+
+      document.getElementById("btnClaro").classList.remove("btn-outline-light");
+      document.getElementById("btnClaro").classList.add("btn-outline-dark");
+
+      document.getElementById("btnOscuro").classList.remove("btn-light");
+      document.getElementById("btnOscuro").classList.add("btn-dark");
+    }
+
+    function activarModoOscuro() {
+      document.body.classList.remove('modo-claro');
+      document.body.classList.add('modo-oscuro');
+      localStorage.setItem('modo', 'oscuro');
+
+      document.getElementById("btnClaro").classList.remove("btn-outline-dark");
+      document.getElementById("btnClaro").classList.add("btn-outline-light");
+
+      document.getElementById("btnOscuro").classList.remove("btn-dark");
+      document.getElementById("btnOscuro").classList.add("btn-light");
+    }
+
+    window.onload = function () {
+      const modo = localStorage.getItem('modo') || 'claro';
+      if (modo === 'oscuro') {
+        document.body.classList.add('modo-oscuro');
+        document.body.classList.remove('modo-claro');
+        setTimeout(activarModoOscuro, 0);
+      } else {
+        document.body.classList.add('modo-claro');
+        document.body.classList.remove('modo-oscuro');
+        setTimeout(activarModoClaro, 0);
+      }
+    };
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -1,56 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cursada Cuatrimestral</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cursada Cuatrimestral</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body.modo-claro {
+      background-color: #E8F1F5;
+      color: #3b3b3b;
+    }
+
+    body.modo-oscuro {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+
+    .modo-oscuro .navbar,
+    .modo-oscuro footer {
+      background-color: #1e1e1e !important;
+    }
+
+    .modo-claro .navbar,
+    .modo-claro footer {
+      background-color: #FAFAFA !important;
+    }
+
+    .modo-oscuro .nav-link,
+    .modo-oscuro .navbar-brand,
+    .modo-oscuro footer p {
+      color: #f0f0f0 !important;
+    }
+
+    .modo-claro .nav-link,
+    .modo-claro .navbar-brand,
+    .modo-claro footer p {
+      color: #004A7C !important;
+    }
+
+    .modo-oscuro .list-group-item {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+      border-color: #333;
+    }
+
+    .modo-claro .list-group-item {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .btn-toggle {
+      margin-left: 10px;
+    }
+  </style>
 </head>
-<body class="d-flex flex-column min-vh-100" style="background-color:#E8F1F5;">
-    <header>
-      <nav class="navbar navbar-expand-md  shadow-sm border-bottom" style="background-color:#FAFAFA">
-        <div class="container">
-          <a class="navbar-brand fw-bold fs-3" href="index.html" style="color: #004A7C">Cursada</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-            <ul class="navbar-nav gap-4">
-              <li class="nav-item">
-                <a class="nav-link text-dark fw-semibold" href="index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark fw-semibold" href="avisos.html">Avisos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark fw-semibold" href="sobreMi.html">Sobre Mi</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark fw-semibold" href="materias2025.html">Materias 2025</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark fw-semibold" href="contacto.html">Contacto</a>
-              </li>
-            </ul>
+
+<body class="d-flex flex-column min-vh-100">
+  <header>
+    <nav class="navbar navbar-expand-md shadow-sm border-bottom" id="navbar">
+      <div class="container">
+        <div class="row w-100 align-items-center">
+          <div class="col-4 col-md-3 text-start">
+            <a class="navbar-brand fw-bold fs-3" href="index.html">Cursada</a>
+          </div>
+
+          <div class="col-4 col-md-6 text-center">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+              <ul class="navbar-nav gap-3">
+                <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="avisos.html">Avisos</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="sobreMi.html">Sobre Mi</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="materias2025.html">Materias 2025</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold" href="contacto.html">Contacto</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-4 col-md-3 text-end">
+            <div class="d-flex justify-content-end gap-2">
+              <button id="btnClaro" class="btn btn-outline-dark btn-sm" onclick="activarModoClaro()">Modo Claro</button>
+              <button id="btnOscuro" class="btn btn-dark btn-sm" onclick="activarModoOscuro()">Modo Oscuro</button>
+            </div>
           </div>
         </div>
-      </nav>
-    </header>
-    <main class="container py-5">
-        <h1 class="text-center mb-4" style="color: rgb(59, 59, 59)">Materias 2025</h1>
-        <h4 class="mb-4" style="color: rgb(59, 59, 59)">Lista de Materias:</h4>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <a href="https://elizabethcorrea13.github.io/tp2/" target="_blank" class="text-decoration-none">Diseño y Desarrollo Web</a>
-            </li>
-            <li class="list-group-item">Marketing global</li>
-            <li class="list-group-item">Redes de Datos</li>
-            <li class="list-group-item">Gestión de Personas en Organizaciones de Tecnología</li>
-        </ul>
-    </main>    
-    <footer class="text-center py-2 border-top mt-auto" style="background-color:#FAFAFA">
-        <p class="mb-0" style="color: #004A7C">© Derechos reservados - Elizabeth Correa 2025.</p>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container py-5">
+    <h1 class="text-center mb-4">Materias 2025</h1>
+    <h4 class="mb-4">Lista de Materias:</h4>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <a href="https://elizabethcorrea13.github.io/tp2/" target="_blank" class="text-decoration-none">Diseño y Desarrollo Web</a>
+      </li>
+      <li class="list-group-item">Marketing Global</li>
+      <li class="list-group-item">Redes de Datos</li>
+      <li class="list-group-item">Gestión de Personas en Organizaciones de Tecnología</li>
+    </ul>
+  </main>
+
+  <footer class="text-center py-2 border-top mt-auto" id="footer">
+    <p class="mb-0">© Derechos reservados - Elizabeth Correa 2025.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function activarModoClaro() {
+      document.body.classList.remove('modo-oscuro');
+      document.body.classList.add('modo-claro');
+      localStorage.setItem('modo', 'claro');
+
+      document.getElementById("btnClaro").classList.remove("btn-outline-light");
+      document.getElementById("btnClaro").classList.add("btn-outline-dark");
+
+      document.getElementById("btnOscuro").classList.remove("btn-light");
+      document.getElementById("btnOscuro").classList.add("btn-dark");
+    }
+
+    function activarModoOscuro() {
+      document.body.classList.remove('modo-claro');
+      document.body.classList.add('modo-oscuro');
+      localStorage.setItem('modo', 'oscuro');
+
+      document.getElementById("btnClaro").classList.remove("btn-outline-dark");
+      document.getElementById("btnClaro").classList.add("btn-outline-light");
+
+      document.getElementById("btnOscuro").classList.remove("btn-dark");
+      document.getElementById("btnOscuro").classList.add("btn-light");
+    }
+
+    window.onload = function () {
+      const modo = localStorage.getItem('modo') || 'claro';
+      if (modo === 'oscuro') {
+        document.body.classList.add('modo-oscuro');
+        document.body.classList.remove('modo-claro');
+        setTimeout(activarModoOscuro, 0);
+      } else {
+        document.body.classList.add('modo-claro');
+        document.body.classList.remove('modo-oscuro');
+        setTimeout(activarModoClaro, 0);
+      }
+    };
+  </script>
 </body>
 </html>
