@@ -60,41 +60,44 @@
       color: #000000;
     }
 
-    .btn-toggle {
-      margin-left: 10px;
+    .modo-oscuro .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
+
+    .nav-link.active {
+      font-weight: bold;
+      color: #0d6efd !important;
+      border-bottom: 2px solid #0d6efd;
+   }
   </style>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
   <header>
     <nav class="navbar navbar-expand-md shadow-sm border-bottom" id="navbar">
-      <div class="container">
-        <div class="row w-100 align-items-center">
-          <div class="col-4 col-md-3 text-start">
-            <a class="navbar-brand fw-bold fs-3" href="index.html">Cursada</a>
-          </div>
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand fw-bold fs-3" href="index.html">Cursada</a>
 
-          <div class="col-4 col-md-6 text-center">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-              <ul class="navbar-nav gap-3">
-                <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link fw-semibold" href="avisos.html">Avisos</a></li>
-                <li class="nav-item"><a class="nav-link fw-semibold" href="sobreMi.html">Sobre Mi</a></li>
-                <li class="nav-item"><a class="nav-link fw-semibold" href="materias2025.html">Materias 2025</a></li>
-                <li class="nav-item"><a class="nav-link fw-semibold" href="contacto.html">Contacto</a></li>
-              </ul>
-            </div>
-          </div>
+        <!-- Botón hamburguesa para colapsar -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <div class="col-4 col-md-3 text-end">
-            <div class="d-flex justify-content-end gap-2">
-              <button id="btnClaro" class="btn btn-outline-dark btn-sm" onclick="activarModoClaro()">Modo Claro</button>
-              <button id="btnOscuro" class="btn btn-dark btn-sm" onclick="activarModoOscuro()">Modo Oscuro</button>
-            </div>
+        <!-- Contenido colapsable -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav mx-auto gap-md-3 text-center">
+            <li class="nav-item"><a class="nav-link fw-semibold" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link fw-semibold" href="avisos.html">Avisos</a></li>
+            <li class="nav-item"><a class="nav-link fw-semibold" href="sobreMi.html">Sobre Mi</a></li>
+            <li class="nav-item"><a class="nav-link fw-semibold" href="materias2025.html">Materias 2025</a></li>
+            <li class="nav-item"><a class="nav-link fw-semibold" href="contacto.html">Contacto</a></li>
+          </ul>
+
+          <!-- Botones modo claro/oscuro -->
+          <div class="d-flex justify-content-end gap-2 mt-3 mt-md-0">
+            <button id="btnClaro" class="btn btn-outline-dark btn-sm" onclick="activarModoClaro()">Modo Claro</button>
+            <button id="btnOscuro" class="btn btn-dark btn-sm" onclick="activarModoOscuro()">Modo Oscuro</button>
           </div>
         </div>
       </div>
@@ -186,6 +189,19 @@
         setTimeout(activarModoClaro, 0);
       }
     };
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const currentUrl = window.location.href;
+      const links = document.querySelectorAll(".navbar-nav .nav-link");
+
+      links.forEach(link => {
+        if (currentUrl.includes(link.href)) {
+          link.classList.add("active");
+        }
+      });
+    });
   </script>
 </body>
 </html>
